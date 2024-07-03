@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+      <script src="https://cdn.tailwindcss.com"></script>
+      <script
+            src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
+      <title>Teste de Email</title>
+      <link rel="stylesheet" href="../../resetCss/index.css">
+      <script>
+            tailwind.config = {
+                  theme: {
+                        extend: {
+                              keyframes: {
+                                    fadein: {
+                                          '0%': { transform: 'translate(-50% ,-50rem)' },
+                                          '100%': { transform: 'translate(-50% ,0px)' },
+                                    },
+                                    fadeout: {
+                                          '0%': { transform: 'translate(-50% ,0px)' },
+                                          '100%': { transform: 'translate(-50% ,-50rem)' },
+                                    },
+
+                              },
+                              animation: {
+                                    fadeIn: 'fadein 1s forwards ease-in-out ',
+                                    fadeOut: 'fadeout 1s  forwards ease-in-out ',
+                                    newBounce: "bounce 1s ease-in-out  infinite",
+                                    newBounceDelay200: "bounce 1s 40ms ease-in-out  infinite",
+                                    newBounceDelay500: "bounce 1s 80ms ease-in-out  infinite"
+                              },
+                        }
+                  }
+            }
+      </script>
+</head>
+
+<body class="bg-[#121B2E]">
+      <div id="alert" class="fixed p-3 bg-red-400 rounded-lg top-3 left-[50%] -translate-x-[50%] hidden">
+      </div>
+      <div class="h-[100vh] w-[100vw] flex justify-center flex-row ">
+            <div id="controllLoading" class="text-white self-center flex hidden">
+                  Aguarde, Enviando email &nbsp;
+                  <div class="animate-newBounce ">.</div>
+                  <div class="animate-newBounceDelay200 delay-200">.</div>
+                  <div class="animate-newBounceDelay500 delay-500">.</div>
+            </div>
+            <form name="formEmail" class="grid grid-cols-2 gap-4 self-center ">
+                  <div>
+                        <input type="text" placeholder="Email origem" name="emailOrigem"
+                              class="border-2 
+                              border-white placeholder-slate-400 shadow-sm border-solid text-sm rounded-lg  focus:outline-none focus:border-teal-500 focus:ring-offset-0 focus:ring-0">
+                  </div>
+                  <div>
+                        <input type="text" placeholder="Porta" name="porta"
+                              class="border-2 border-white placeholder-slate-400 shadow-sm text-sm rounded-lg  focus:outline-none focus:border-teal-500 focus:ring-offset-0 focus:ring-0">
+                  </div>
+                  <div>
+                        <input type="text" placeholder="Host" name="host"
+                              class="border-2 border-white placeholder-slate-400 shadow-sm text-sm rounded-lg  focus:outline-none focus:border-teal-500 focus:ring-offset-0 focus:ring-0">
+                  </div>
+                  <div>
+                        <input type="text" placeholder="Usuario" name="usuario"
+                              class="border-2 border-white placeholder-slate-400 shadow-sm text-sm rounded-lg  focus:outline-none focus:border-teal-500 focus:ring-offset-0 focus:ring-0">
+                  </div>
+                  <div>
+                        <input type="text" placeholder="Senha" name="senha"
+                              class="border-2 border-white placeholder-slate-400 shadow-sm text-sm rounded-lg  focus:outline-none focus:border-teal-500 focus:ring-offset-0 focus:ring-0">
+                  </div>
+                  <div>
+                        <input type="text" placeholder="Endereço Destinatario teste" name="destinatario"
+                              class="border-2 border-white placeholder-slate-400 shadow-sm text-sm rounded-lg  focus:outline-none focus:border-teal-500 focus:ring-offset-0 focus:ring-0">
+                  </div>
+                  <div>
+                        <input type="checkbox" name="ssl"
+                              class="border-2 border-white placeholder-slate-400 shadow-sm text-sm rounded-lg  focus:outline-none focus:border-teal-500 focus:ring-offset-0 focus:ring-0">
+                        <label class="text-sm text-white">Enable SSL?</label>
+                  </div>
+                  <div>
+                        <Button type="submit"
+                              class=" text-white border w-full border-white p-2 shadow-sm text-sm rounded-lg">
+                              Enviar Email
+                        </Button>
+                  </div>
+            </form>
+      </div>
+
+
+
+      <script src="./script.js" type="module"></script>
+</body>
+
+</html>
